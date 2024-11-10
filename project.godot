@@ -13,12 +13,10 @@ config_version=5
 config/name="StatekKosmiczny"
 run/main_scene="res://game.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
-
 
 [autoload]
 
-GlobalVariables="*res://global_variables.tscn"
+GlobalVariables="*res://prefabs/global_variables.tscn"
 
 [input]
 

@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://dbkru25acx0hn"]
 
-[ext_resource type="Script" path="res://asteroid.gd" id="1_vrujd"]
-[ext_resource type="Texture2D" uid="uid://crdydtxjs1wfa" path="res://small-roid.png" id="2_g6fe5"]
-[ext_resource type="Script" path="res://killzone.gd" id="2_x12es"]
+[ext_resource type="Script" path="res://scripts/asteroid.gd" id="1_vrujd"]
+[ext_resource type="Texture2D" uid="uid://crdydtxjs1wfa" path="res://graphics/small-roid.png" id="2_g6fe5"]
+[ext_resource type="Script" path="res://scripts/killzone.gd" id="2_x12es"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cluvo"]
 radius = 20.0

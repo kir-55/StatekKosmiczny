@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo3rsdkigb3ma"
-path="res://.godot/imported/big-roid.png-f93abc5db78a6275ea42ac3ed6e57431.ctex"
+uid="uid://b8ng2r72o5d4q"
+path="res://.godot/imported/middle-roid.png-f272ba0524552e7f5068823f8588543b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://big-roid.png"
-dest_files=["res://.godot/imported/big-roid.png-f93abc5db78a6275ea42ac3ed6e57431.ctex"]
+source_file="res://graphics/middle-roid.png"
+dest_files=["res://.godot/imported/middle-roid.png-f272ba0524552e7f5068823f8588543b.ctex"]
 
 [params]
 
