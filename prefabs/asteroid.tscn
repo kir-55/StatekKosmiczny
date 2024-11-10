@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dbkru25acx0hn"]
+[gd_scene load_steps=4 format=3 uid="uid://dbkru25acx0hn"]
 
 [ext_resource type="Script" path="res://scripts/asteroid.gd" id="1_vrujd"]
-[ext_resource type="Texture2D" uid="uid://crdydtxjs1wfa" path="res://graphics/small-roid.png" id="2_g6fe5"]
-[ext_resource type="Script" path="res://scripts/killzone.gd" id="2_x12es"]
+[ext_resource type="Texture2D" uid="uid://bo3rsdkigb3ma" path="res://graphics/big-roid.png" id="2_i13my"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cluvo"]
 radius = 20.0
@@ -12,12 +11,13 @@ script = ExtResource("1_vrujd")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(8.34465e-07, 2.02656e-06)
-texture = ExtResource("2_g6fe5")
+scale = Vector2(6, 6)
+texture = ExtResource("2_i13my")
 
-[node name="Killzone" type="Area2D" parent="."]
-script = ExtResource("2_x12es")
+[node name="Killzone" type="Area2D" parent="." groups=["asteroid"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" groups=["asteroid"]]
 shape = SubResource("CircleShape2D_cluvo")
 
+[connection signal="body_entered" from="Killzone" to="." method="_on_killzone_body_entered"]
 [connection signal="body_entered" from="Killzone" to="Killzone" method="_on_body_entered"]

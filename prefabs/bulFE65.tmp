@@ -18,6 +18,7 @@ fill_to = Vector2(0.637615, 0.720183)
 
 [node name="Bullet" type="Area2D"]
 script = ExtResource("1_ckslv")
+speed = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(6, 6)

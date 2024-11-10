@@ -1,4 +1,6 @@
-res://asteroid.tscn
-res://asteroid.gd
 res://game.tscn
 res://prefabs/asteroid.tscn
+res://prefabs/bullet.tscn
+res://prefabs/global_variables.tscn
+res://asteroid_spawner.gd
+res://camera_movement.gd

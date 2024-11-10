@@ -3,8 +3,8 @@ extends Node2D
 @onready var sprite = $Sprite2D
 @onready var collision_shape = get_node("Killzone/CollisionShape2D")
 
-var max_hp = 100
-var hp
+@export var max_hp: int = 100
+var hp:int
 
 func _ready():
 	hp = max_hp
@@ -16,11 +16,12 @@ func _ready():
 	collision_shape.shape.radius = (sprite_size.x / 2) * project_scale
 
 
-func _on_body_entered(body):
-	body.queue_free()
-
 func take_damage(value):
 	hp -= value
 	
 	if hp <= 0:
 		queue_free()
+
+
+func _on_killzone_body_entered(body):
+	body.queue_free()

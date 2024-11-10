@@ -49,7 +49,6 @@ asteroid_prefab = ExtResource("1_7lsi1")
 asteroids = Array[ExtResource("4_7np1c")]([SubResource("Resource_p47wl"), SubResource("Resource_xlsn7"), SubResource("Resource_2wjxh")])
 
 [node name="Timer" type="Timer" parent="AsteroidSpawner"]
-wait_time = 0.2
 autostart = true
 
 [node name="Walls" type="Node" parent="."]
