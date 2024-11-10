@@ -1,8 +1,72 @@
-[gd_scene load_steps=2 format=3 uid="uid://g7duvjv0odhg"]
+[gd_scene load_steps=9 format=3 uid="uid://g7duvjv0odhg"]
 
 [ext_resource type="PackedScene" uid="uid://dbkru25acx0hn" path="res://asteroid.tscn" id="1_7lsi1"]
 
-[node name="Node2D" type="Node2D"]
-position = Vector2(365, 229)
 
+
+
+
+[ext_resource type="Texture2D" uid="uid://chcopiexb25yv" path="res://cosmic_player_basic.png" id="1_l577p"]
+[ext_resource type="Script" path="res://player.gd" id="1_wrb64"]
+[ext_resource type="Script" path="res://cannons.gd" id="2_vq1y0"]
+[ext_resource type="PackedScene" uid="uid://brpsvsrqd7ojt" path="res://bullet.tscn" id="4_ucg42"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_m6bij"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2dx1y"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_44wt0"]
+size = Vector2(84, 54)
+
+[node name="Game" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Walls" type="Node" parent="."]
 [node name="Asteroid" parent="." instance=ExtResource("1_7lsi1")]
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Walls"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D2"]
+position = Vector2(-576, 47)
+shape = SubResource("WorldBoundaryShape2D_m6bij")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Walls"]
+position = Vector2(575, 13)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls/StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_2dx1y")
+
+[node name="Player" type="CharacterBody2D" parent="." node_paths=PackedStringArray("root_node")]
+position = Vector2(1, 241)
+script = ExtResource("1_wrb64")
+root_node = NodePath("..")
+speed = 600.0
+
+[node name="BulletsRefillerTimer" type="Timer" parent="Player"]
+wait_time = 0.3
+autostart = true
+
+[node name="Cannons" type="Node2D" parent="Player" node_paths=PackedStringArray("root_node")]
+script = ExtResource("2_vq1y0")
+root_node = NodePath("../..")
+bullet_prefabs = Array[PackedScene]([ExtResource("4_ucg42")])
+
+[node name="CannonRight" type="Node2D" parent="Player/Cannons"]
+position = Vector2(36, -45)
+
+[node name="CannonLeft" type="Node2D" parent="Player/Cannons"]
+position = Vector2(-42, -46)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(-3, -15)
+shape = SubResource("RectangleShape2D_44wt0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+position = Vector2(-3, -24)
+scale = Vector2(6, 6)
+texture = ExtResource("1_l577p")
+
+[connection signal="timeout" from="Player/BulletsRefillerTimer" to="Player/Cannons" method="_on_timer_timeout"]
