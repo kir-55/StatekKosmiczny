@@ -1,4 +1,6 @@
-res://asteroid.tscn
-res://asteroid.gd
+res://default_bus_layout.tres
 res://game.tscn
+res://scripts/cannons.gd
+res://scripts/asteroid.gd
+res://sounds/sound_destroy.gd
 res://prefabs/asteroid.tscn

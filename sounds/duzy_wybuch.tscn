@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://do80avsycte3y"]
+
+[ext_resource type="AudioStream" uid="uid://dubr3yxgrmsvt" path="res://sounds/duzy wybuch.wav" id="1_vx8ik"]
+[ext_resource type="Script" path="res://sounds/sound_destroy.gd" id="2_cp65c"]
+
+[node name="DuzyWybuch" type="AudioStreamPlayer"]
+stream = ExtResource("1_vx8ik")
+script = ExtResource("2_cp65c")

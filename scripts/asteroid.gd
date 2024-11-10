@@ -2,6 +2,9 @@ extends Node2D
 
 @onready var sprite = $Sprite2D
 @onready var collision_shape = get_node("Killzone/CollisionShape2D")
+@export var explosion_sound_prefab: PackedScene
+
+
 
 var max_hp = 100
 var hp
@@ -23,4 +26,6 @@ func take_damage(value):
 	hp -= value
 	
 	if hp <= 0:
+		var explosion_sound= explosion_sound_prefab.instantiate()
+		add_child(explosion_sound)
 		queue_free()

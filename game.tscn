@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://g7duvjv0odhg"]
+[gd_scene load_steps=11 format=3 uid="uid://g7duvjv0odhg"]
 
 [ext_resource type="PackedScene" uid="uid://dbkru25acx0hn" path="res://prefabs/asteroid.tscn" id="1_7lsi1"]
 [ext_resource type="Texture2D" uid="uid://chcopiexb25yv" path="res://graphics/cosmic_player_basic.png" id="1_l577p"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_wrb64"]
 [ext_resource type="Script" path="res://scripts/cannons.gd" id="2_vq1y0"]
 [ext_resource type="PackedScene" uid="uid://brpsvsrqd7ojt" path="res://prefabs/bullet.tscn" id="4_ucg42"]
+[ext_resource type="PackedScene" uid="uid://dhqn31ofhca7j" path="res://sounds/cannon_shoot.tscn" id="5_6k0db"]
+[ext_resource type="AudioStream" uid="uid://bg8fjgpbsp1ys" path="res://sounds/gra1.mp3" id="7_06ohe"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_m6bij"]
 normal = Vector2(1, 0)
@@ -49,6 +51,7 @@ autostart = true
 script = ExtResource("2_vq1y0")
 root_node = NodePath("../..")
 bullet_prefabs = Array[PackedScene]([ExtResource("4_ucg42")])
+shoot_sound_prefab = ExtResource("5_6k0db")
 
 [node name="CannonRight" type="Node2D" parent="Player/Cannons"]
 position = Vector2(36, -45)
@@ -64,5 +67,11 @@ shape = SubResource("RectangleShape2D_44wt0")
 position = Vector2(-3, -24)
 scale = Vector2(6, 6)
 texture = ExtResource("1_l577p")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_06ohe")
+volume_db = -5.0
+autoplay = true
+bus = &"Music"
 
 [connection signal="timeout" from="Player/BulletsRefillerTimer" to="Player/Cannons" method="_on_timer_timeout"]

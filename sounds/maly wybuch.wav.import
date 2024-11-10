@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dit4evbi8xsch"
+path="res://.godot/imported/maly wybuch.wav-939583586eecae3c3e2c22d69e004772.sample"
+
+[deps]
+
+source_file="res://sounds/maly wybuch.wav"
+dest_files=["res://.godot/imported/maly wybuch.wav-939583586eecae3c3e2c22d69e004772.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
