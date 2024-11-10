@@ -1,4 +1,3 @@
-res://asteroid.tscn
-res://asteroid.gd
 res://game.tscn
+res://scripts/cannons.gd
 res://prefabs/asteroid.tscn

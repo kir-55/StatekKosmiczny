@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://g7duvjv0odhg"]
+[gd_scene load_steps=16 format=3 uid="uid://g7duvjv0odhg"]
 
 [ext_resource type="PackedScene" uid="uid://dbkru25acx0hn" path="res://prefabs/asteroid.tscn" id="1_7lsi1"]
 [ext_resource type="Texture2D" uid="uid://chcopiexb25yv" path="res://graphics/cosmic_player_basic.png" id="1_l577p"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_wrb64"]
 [ext_resource type="Script" path="res://scripts/cannons.gd" id="2_vq1y0"]
 [ext_resource type="PackedScene" uid="uid://brpsvsrqd7ojt" path="res://prefabs/bullet.tscn" id="4_ucg42"]
+[ext_resource type="Texture2D" uid="uid://bqilqyro5hxy0" path="res://graphics/cosmic_player_fire.png" id="5_rcdev"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_m6bij"]
 normal = Vector2(1, 0)
@@ -14,6 +15,54 @@ normal = Vector2(-1, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_44wt0"]
 size = Vector2(84, 54)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_671ht"]
+atlas = ExtResource("5_rcdev")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fe256"]
+atlas = ExtResource("5_rcdev")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nayig"]
+atlas = ExtResource("5_rcdev")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tujq3"]
+atlas = ExtResource("5_rcdev")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqcei"]
+atlas = ExtResource("1_l577p")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tkfpp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_671ht")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fe256")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nayig")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tujq3")
+}],
+"loop": false,
+"name": &"Shoot",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kqcei")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
 
 [node name="Game" type="Node2D"]
 
@@ -57,12 +106,12 @@ position = Vector2(36, -45)
 position = Vector2(-42, -46)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(-3, -15)
+position = Vector2(-1, -15)
 shape = SubResource("RectangleShape2D_44wt0")
 
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
-position = Vector2(-3, -24)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+position = Vector2(-1, -24)
 scale = Vector2(6, 6)
-texture = ExtResource("1_l577p")
+sprite_frames = SubResource("SpriteFrames_tkfpp")
 
 [connection signal="timeout" from="Player/BulletsRefillerTimer" to="Player/Cannons" method="_on_timer_timeout"]
