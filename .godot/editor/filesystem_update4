@@ -2,3 +2,5 @@ res://killzone.gd
 res://asteroid.gd
 res://asteroid.tscn
 res://game.tscn
+res://global_variables.gd
+res://global_variables.tscn

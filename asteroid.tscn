@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dbkru25acx0hn"]
 
 [ext_resource type="Script" path="res://asteroid.gd" id="1_vrujd"]
-[ext_resource type="Texture2D" uid="uid://clfyiccyrbhpd" path="res://icon.svg" id="2_wbhgn"]
+[ext_resource type="Texture2D" uid="uid://crdydtxjs1wfa" path="res://small-roid.png" id="2_g6fe5"]
 [ext_resource type="Script" path="res://killzone.gd" id="2_x12es"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cluvo"]
@@ -12,8 +12,7 @@ script = ExtResource("1_vrujd")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(8.34465e-07, 2.02656e-06)
-scale = Vector2(6, 6)
-texture = ExtResource("2_wbhgn")
+texture = ExtResource("2_g6fe5")
 
 [node name="Killzone" type="Area2D" parent="."]
 script = ExtResource("2_x12es")

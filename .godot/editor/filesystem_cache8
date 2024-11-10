@@ -1,5 +1,10 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1731254552
-game.tscn::PackedScene::487412134696203488::1731254333::0::1::::<><>::
+::res://::1731259503
+big-roid.png::CompressedTexture2D::3427931578296214256::1731259503::1731259503::1::::<><>::
+game.tscn::PackedScene::487412134696203488::1731259375::0::1::::<><>::
 icon.svg::CompressedTexture2D::5556712139602016437::1731254333::1731254420::1::::<><>::
-::res://Scenes/::1731254552
+killzone.gd::GDScript::-1::1731259375::0::1::::<>Area2D<>::
+asteroid.gd::GDScript::-1::1731259375::0::1::::<>Node2D<>::
+asteroid.tscn::PackedScene::7251164041491253303::1731259375::0::1::::<><>::res://asteroid.gd<>uid://clfyiccyrbhpd::::res://icon.svg<>res://killzone.gd
+middle-roid.png::CompressedTexture2D::4729902896520320294::1731259503::1731259503::1::::<><>::
+small-roid.png::CompressedTexture2D::5973708441611216466::1731259503::1731259503::1::::<><>::

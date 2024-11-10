@@ -1,4 +1,8 @@
-[gd_scene format=3 uid="uid://g7duvjv0odhg"]
+[gd_scene load_steps=2 format=3 uid="uid://g7duvjv0odhg"]
+
+[ext_resource type="PackedScene" uid="uid://dbkru25acx0hn" path="res://asteroid.tscn" id="1_7lsi1"]
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(365, 229)
+
+[node name="Asteroid" parent="." instance=ExtResource("1_7lsi1")]
