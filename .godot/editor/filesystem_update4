@@ -1,4 +1,6 @@
-res://asteroid.tscn
-res://asteroid.gd
+res://menus/store.tscn
+res://themes/menu.tres
 res://game.tscn
+res://menus/play.tscn
 res://prefabs/asteroid.tscn
+res://scripts/menus/store.gd

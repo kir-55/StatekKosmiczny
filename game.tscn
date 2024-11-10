@@ -19,6 +19,8 @@ size = Vector2(84, 54)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
 [node name="Walls" type="Node" parent="."]
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Walls"]
