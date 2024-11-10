@@ -1,4 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://g7duvjv0odhg"]
+[gd_scene load_steps=9 format=3 uid="uid://g7duvjv0odhg"]
+
+[ext_resource type="PackedScene" uid="uid://dbkru25acx0hn" path="res://asteroid.tscn" id="1_7lsi1"]
+
+
+
+
 
 [ext_resource type="Texture2D" uid="uid://chcopiexb25yv" path="res://cosmic_player_basic.png" id="1_l577p"]
 [ext_resource type="Script" path="res://player.gd" id="1_wrb64"]
@@ -19,6 +25,7 @@ size = Vector2(84, 54)
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Walls" type="Node" parent="."]
+[node name="Asteroid" parent="." instance=ExtResource("1_7lsi1")]
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Walls"]
 
