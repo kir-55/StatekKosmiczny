@@ -11,6 +11,7 @@ func _on_timer_timeout():
 	var asteroid = asteroid_prefab.instantiate()
 	asteroid.get_node("Sprite2D").texture = asteroids[asteroid_type].sprite
 	asteroid.max_hp = asteroids[asteroid_type].max_hp
+	asteroid.explosion_sound_prefab = asteroids[asteroid_type].chrash_suund
 	asteroid.global_position.x = randi()%1100-550#player.global_position.x
 	asteroid.global_position.y = player.global_position.y - y_offset
 	get_tree().get_root().get_node("Game").add_child(asteroid)
