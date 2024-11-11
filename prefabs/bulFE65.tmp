@@ -18,13 +18,13 @@ fill_to = Vector2(0.637615, 0.720183)
 
 [node name="Bullet" type="Area2D"]
 script = ExtResource("1_ckslv")
+speed = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(6, 6)
 shape = SubResource("RectangleShape2D_3hy0w")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-self_modulate = Color(1, 1, 0.996078, 1)
 scale = Vector2(5.898, 6)
 texture = SubResource("GradientTexture2D_hxxtv")
 

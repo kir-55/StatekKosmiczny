@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://pld8tq3jvrtu"]
+
+[ext_resource type="AudioStream" uid="uid://dit4evbi8xsch" path="res://sounds/maly wybuch.wav" id="1_iou5r"]
+[ext_resource type="Script" path="res://sounds/sound_destroy.gd" id="2_lmwm7"]
+
+[node name="MalyWybuch" type="AudioStreamPlayer"]
+stream = ExtResource("1_iou5r")
+script = ExtResource("2_lmwm7")

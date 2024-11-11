@@ -1,9 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://ctqs3kri2prnb"]
+[gd_scene load_steps=5 format=3 uid="uid://ctqs3kri2prnb"]
 
 [ext_resource type="Theme" uid="uid://dalxhu26t2fae" path="res://themes/menu.tres" id="1_5vqd1"]
 [ext_resource type="Script" path="res://scripts/menus/play.gd" id="1_h8igv"]
 
-[node name="PlayMenu" type="Panel"]
+[sub_resource type="LabelSettings" id="LabelSettings_m7jtq"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_pg0e7"]
+font_size = 30
+
+[node name="PlayMenu" type="Panel" node_paths=PackedStringArray("best_label", "last_label")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -17,9 +23,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_5vqd1")
 script = ExtResource("1_h8igv")
+best_label = NodePath("MarginContainer/VBoxContainer/Label2")
+last_label = NodePath("MarginContainer/VBoxContainer/Label")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
+offset_top = -9.0
 offset_right = 382.0
 offset_bottom = 525.0
 theme_override_constants/margin_left = 20
@@ -30,13 +39,31 @@ theme_override_constants/margin_bottom = 50
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_m7jtq")
+
+[node name="Control4" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_pg0e7")
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
 [node name="PlayButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 35
 text = "PLAY"
 
-[node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
+[node name="Control3" type="Control" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
