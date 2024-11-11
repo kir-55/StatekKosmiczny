@@ -25,5 +25,5 @@ func _physics_process(delta):
 	# Przesuń postać
 	move_and_slide()
 
-	
+
 

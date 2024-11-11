@@ -32,4 +32,7 @@ func _on_killzone_body_entered(body):
 	if body.is_in_group("asteroid"):
 		queue_free()
 	elif body.is_in_group("player"):
+		GlobalVariables.player_last_score = body.global_position.y * -1
+		if GlobalVariables.player_last_score > GlobalVariables.player_best_score:
+			GlobalVariables.player_best_score = GlobalVariables.player_last_score
 		get_tree().change_scene_to_file("res://menus/play.tscn")
