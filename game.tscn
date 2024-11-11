@@ -73,7 +73,6 @@ position = Vector2(1, 241)
 script = ExtResource("1_wrb64")
 root_node = NodePath("..")
 speed = 600.0
-y_speed = 50.0
 
 [node name="BulletsRefillerTimer" type="Timer" parent="Player"]
 wait_time = 0.1
@@ -106,16 +105,5 @@ volume_db = -5.0
 autoplay = true
 bus = &"Music"
 
-[node name="Asteroid" parent="." instance=ExtResource("1_7lsi1")]
-position = Vector2(-236, -13)
-
-[node name="Asteroid2" parent="." instance=ExtResource("1_7lsi1")]
-position = Vector2(88, -22)
-
-[node name="Sprite2D" parent="Asteroid2" index="0"]
-texture = ExtResource("6_oeiqk")
-
 [connection signal="timeout" from="AsteroidSpawner/Timer" to="AsteroidSpawner" method="_on_timer_timeout"]
 [connection signal="timeout" from="Player/BulletsRefillerTimer" to="Player/Cannons" method="_on_timer_timeout"]
-
-[editable path="Asteroid2"]

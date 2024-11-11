@@ -1,6 +1,5 @@
-res://game.tscn
-res://asteroid_spawner.gd
 res://prefabs/asteroid.tscn
+res://scripts/asteroid.gd
 res://prefabs/bullet.tscn
 res://prefabs/global_variables.tscn
-res://scripts/asteroid.gd
+res://game.tscn
