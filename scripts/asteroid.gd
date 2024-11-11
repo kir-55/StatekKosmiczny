@@ -24,7 +24,7 @@ func take_damage(value):
 	
 	if hp <= 0:
 		var explosion_sound= explosion_sound_prefab.instantiate()
-		add_child(explosion_sound)
+		get_parent().add_child(explosion_sound)
 		queue_free()
 
 
