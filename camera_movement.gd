@@ -5,4 +5,3 @@ extends Camera2D
 
 func _process(delta):
 	global_position.y = player.global_position.y - y_offset
-	

@@ -1,16 +1,16 @@
-
-[gd_scene load_steps=4 format=3 uid="uid://dbkru25acx0hn"]
+[gd_scene load_steps=5 format=3 uid="uid://dbkru25acx0hn"]
 
 [ext_resource type="Script" path="res://scripts/asteroid.gd" id="1_vrujd"]
 [ext_resource type="Texture2D" uid="uid://bo3rsdkigb3ma" path="res://graphics/big-roid.png" id="2_i13my"]
 [ext_resource type="PackedScene" uid="uid://dkfyx2sihse8n" path="res://sounds/sredni_wybuch.tscn" id="2_ixbpw"]
 
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_cluvo"]
 radius = 20.0
 
-[node name="Asteroid" type="Node2D" groups=["asteroid"]]
+[node name="Asteroid" type="Node2D" node_paths=PackedStringArray("sprite", "collision_shape") groups=["asteroid"]]
 script = ExtResource("1_vrujd")
+sprite = NodePath("Sprite2D")
+collision_shape = NodePath("Killzone/CollisionShape2D")
 explosion_sound_prefab = ExtResource("2_ixbpw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
