@@ -29,4 +29,7 @@ func take_damage(value):
 
 
 func _on_killzone_body_entered(body):
-	body.queue_free()
+	if body.is_in_group("asteroid"):
+		queue_free()
+	elif body.is_in_group("player"):
+		get_tree().change_scene_to_file("res://menus/play.tscn")

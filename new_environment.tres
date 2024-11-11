@@ -1,0 +1,14 @@
+[gd_resource type="Environment" format=3 uid="uid://buw6pfjekckml"]
+
+[resource]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 1.0
+glow_strength = 0.58
+glow_bloom = 1.0
+glow_blend_mode = 1
+fog_light_color = Color(0.593468, 0, 0.136049, 1)
+fog_light_energy = 8.49
+fog_density = 0.7448
+fog_height_density = -0.004
+volumetric_fog_density = 2.1505
