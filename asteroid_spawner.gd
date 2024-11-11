@@ -13,4 +13,4 @@ func _on_timer_timeout():
 	asteroid.max_hp = asteroids[asteroid_type].max_hp
 	asteroid.global_position.x = randi()%1100-550#player.global_position.x
 	asteroid.global_position.y = player.global_position.y - y_offset
-	get_parent().add_child(asteroid)
+	get_tree().get_root().get_node("Game").add_child(asteroid)

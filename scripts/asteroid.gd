@@ -11,7 +11,7 @@ func _ready():
 	hp = max_hp
 	if (abs(get_tree().get_root().get_node("Game/Player").global_position.y + global_position.y)>700):
 		var project_scale = GlobalVariables.pixels_scale
-		print(randi())
+		print("size: "  + str(project_scale))
 		sprite.scale = Vector2(project_scale, project_scale)
 		var sprite_size = sprite.texture.get_size()		
 		collision_shape.shape.radius = (sprite_size.x / 2) * project_scale

@@ -20,9 +20,6 @@ normal = Vector2(1, 0)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2dx1y"]
 normal = Vector2(-1, 0)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_44wt0"]
-size = Vector2(84, 54)
-
 [sub_resource type="Resource" id="Resource_p47wl"]
 script = ExtResource("4_7np1c")
 sprite = ExtResource("5_cote0")
@@ -37,6 +34,9 @@ max_hp = 100
 script = ExtResource("4_7np1c")
 sprite = ExtResource("7_44vrx")
 max_hp = 500
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_44wt0"]
+size = Vector2(84, 54)
 
 [node name="Game" type="Node2D"]
 
@@ -58,12 +58,22 @@ position = Vector2(575, 13)
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls/StaticBody2D"]
 shape = SubResource("WorldBoundaryShape2D_2dx1y")
 
+[node name="AsteroidSpawner" type="Node" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("2_ku83v")
+player = NodePath("../Player")
+asteroid_prefab = ExtResource("1_7lsi1")
+asteroids = Array[ExtResource("4_7np1c")]([SubResource("Resource_p47wl"), SubResource("Resource_xlsn7"), SubResource("Resource_2wjxh")])
+
+[node name="Timer" type="Timer" parent="AsteroidSpawner"]
+wait_time = 0.3
+autostart = true
+
 [node name="Player" type="CharacterBody2D" parent="." node_paths=PackedStringArray("root_node")]
 position = Vector2(1, 241)
 script = ExtResource("1_wrb64")
 root_node = NodePath("..")
 speed = 600.0
-y_speed = 0.0
+y_speed = 50.0
 
 [node name="BulletsRefillerTimer" type="Timer" parent="Player"]
 wait_time = 0.1
@@ -90,16 +100,6 @@ position = Vector2(-3, -24)
 scale = Vector2(6, 6)
 texture = ExtResource("1_l577p")
 
-[node name="AsteroidSpawner" type="Node" parent="." node_paths=PackedStringArray("player")]
-script = ExtResource("2_ku83v")
-player = NodePath("../Player")
-asteroid_prefab = ExtResource("1_7lsi1")
-asteroids = Array[ExtResource("4_7np1c")]([SubResource("Resource_p47wl"), SubResource("Resource_xlsn7"), SubResource("Resource_2wjxh")])
-
-[node name="Timer" type="Timer" parent="AsteroidSpawner"]
-wait_time = 0.3
-autostart = true
-
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_06ohe")
 volume_db = -5.0
@@ -115,7 +115,7 @@ position = Vector2(88, -22)
 [node name="Sprite2D" parent="Asteroid2" index="0"]
 texture = ExtResource("6_oeiqk")
 
-[connection signal="timeout" from="Player/BulletsRefillerTimer" to="Player/Cannons" method="_on_timer_timeout"]
 [connection signal="timeout" from="AsteroidSpawner/Timer" to="AsteroidSpawner" method="_on_timer_timeout"]
+[connection signal="timeout" from="Player/BulletsRefillerTimer" to="Player/Cannons" method="_on_timer_timeout"]
 
 [editable path="Asteroid2"]
