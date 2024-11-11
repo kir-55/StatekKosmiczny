@@ -99,6 +99,8 @@ animations = [{
 script = ExtResource("1_bfu4x")
 player = NodePath("../Player")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
 [node name="Walls" type="Node" parent="."]
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Walls"]

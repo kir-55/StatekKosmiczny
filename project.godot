@@ -18,6 +18,11 @@ config/features=PackedStringArray("4.2", "Forward Plus")
 
 GlobalVariables="*res://prefabs/global_variables.tscn"
 
+[display]
+
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
 [input]
 
 left={

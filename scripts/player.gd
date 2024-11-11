@@ -7,7 +7,6 @@ extends CharacterBody2D
 
 @export var y_speed = 500.0
 
-
 func _physics_process(delta):
 	var direction = Input.get_axis("left", "right")
 	
