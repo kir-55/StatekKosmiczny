@@ -1,4 +1,5 @@
-[gd_scene load_steps=18 format=3 uid="uid://g7duvjv0odhg"]
+[gd_scene load_steps=20 format=3 uid="uid://g7duvjv0odhg"]
+
 
 [ext_resource type="PackedScene" uid="uid://dbkru25acx0hn" path="res://prefabs/asteroid.tscn" id="1_7lsi1"]
 [ext_resource type="Script" path="res://camera_movement.gd" id="1_bfu4x"]
@@ -8,6 +9,7 @@
 [ext_resource type="Script" path="res://scripts/cannons.gd" id="2_vq1y0"]
 [ext_resource type="Script" path="res://scripts/asteroid_type.gd" id="4_7np1c"]
 [ext_resource type="PackedScene" uid="uid://brpsvsrqd7ojt" path="res://prefabs/bullet.tscn" id="4_ucg42"]
+
 [ext_resource type="Texture2D" uid="uid://crdydtxjs1wfa" path="res://graphics/small-roid.png" id="5_cote0"]
 [ext_resource type="Texture2D" uid="uid://b8ng2r72o5d4q" path="res://graphics/middle-roid.png" id="6_oeiqk"]
 [ext_resource type="Texture2D" uid="uid://bo3rsdkigb3ma" path="res://graphics/big-roid.png" id="7_44vrx"]
@@ -26,6 +28,9 @@ max_hp = 100
 script = ExtResource("4_7np1c")
 sprite = ExtResource("7_44vrx")
 max_hp = 500
+
+[ext_resource type="PackedScene" uid="uid://dhqn31ofhca7j" path="res://sounds/cannon_shoot.tscn" id="5_6k0db"]
+[ext_resource type="AudioStream" uid="uid://bg8fjgpbsp1ys" path="res://sounds/gra1.mp3" id="7_06ohe"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_m6bij"]
 normal = Vector2(1, 0)
@@ -80,6 +85,7 @@ autostart = true
 script = ExtResource("2_vq1y0")
 root_node = NodePath("../..")
 bullet_prefabs = Array[PackedScene]([ExtResource("4_ucg42")])
+shoot_sound_prefab = ExtResource("5_6k0db")
 
 [node name="CannonRight" type="Node2D" parent="Player/Cannons"]
 position = Vector2(36, -45)
@@ -97,4 +103,11 @@ scale = Vector2(6, 6)
 texture = ExtResource("1_l577p")
 
 [connection signal="timeout" from="AsteroidSpawner/Timer" to="AsteroidSpawner" method="_on_timer_timeout"]
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_06ohe")
+volume_db = -5.0
+autoplay = true
+bus = &"Music"
+
 [connection signal="timeout" from="Player/BulletsRefillerTimer" to="Player/Cannons" method="_on_timer_timeout"]

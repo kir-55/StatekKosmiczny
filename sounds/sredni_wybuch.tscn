@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkfyx2sihse8n"]
+
+[ext_resource type="AudioStream" uid="uid://c5fdalf3vsh24" path="res://sounds/sredni wybuch.wav" id="1_8016a"]
+[ext_resource type="Script" path="res://sounds/sound_destroy.gd" id="2_wdmwq"]
+
+[node name="SredniWybuch" type="AudioStreamPlayer"]
+stream = ExtResource("1_8016a")
+script = ExtResource("2_wdmwq")

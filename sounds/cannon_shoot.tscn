@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhqn31ofhca7j"]
+
+[ext_resource type="AudioStream" uid="uid://d1ccjdkc3an04" path="res://sounds/strzal.wav" id="1_c5dr2"]
+[ext_resource type="Script" path="res://sounds/sound_destroy.gd" id="2_edjam"]
+
+[node name="CannonShoot" type="AudioStreamPlayer"]
+stream = ExtResource("1_c5dr2")
+bus = &"SFX"
+script = ExtResource("2_edjam")

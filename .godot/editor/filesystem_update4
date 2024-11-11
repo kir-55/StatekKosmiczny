@@ -1,4 +1,8 @@
+res://default_bus_layout.tres
 res://game.tscn
+res://scripts/cannons.gd
+res://scripts/asteroid.gd
+res://sounds/sound_destroy.gd
 res://prefabs/asteroid.tscn
 res://prefabs/bullet.tscn
 res://prefabs/global_variables.tscn

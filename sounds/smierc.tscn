@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://8a7i4r0ral77"]
+
+[ext_resource type="AudioStream" uid="uid://2cqpqtmb6fmy" path="res://sounds/smierc.wav" id="1_bfih1"]
+
+[node name="smierc" type="AudioStreamPlayer"]
+stream = ExtResource("1_bfih1")
