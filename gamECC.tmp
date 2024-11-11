@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://g7duvjv0odhg"]
+[gd_scene load_steps=27 format=3 uid="uid://g7duvjv0odhg"]
 
 [ext_resource type="PackedScene" uid="uid://dbkru25acx0hn" path="res://prefabs/asteroid.tscn" id="1_7lsi1"]
 [ext_resource type="Script" path="res://camera_movement.gd" id="1_bfu4x"]
@@ -7,9 +7,6 @@
 [ext_resource type="Script" path="res://asteroid_spawner.gd" id="2_ku83v"]
 [ext_resource type="Script" path="res://scripts/cannons.gd" id="2_vq1y0"]
 [ext_resource type="Script" path="res://scripts/asteroid_type.gd" id="4_7np1c"]
-
-[ext_resource type="PackedScene" uid="uid://pld8tq3jvrtu" path="res://sounds/maly_wybuch.tscn" id="4_gsfg6"]
-
 [ext_resource type="PackedScene" uid="uid://brpsvsrqd7ojt" path="res://prefabs/bullet.tscn" id="4_ucg42"]
 [ext_resource type="PackedScene" uid="uid://dhqn31ofhca7j" path="res://sounds/cannon_shoot.tscn" id="5_6k0db"]
 [ext_resource type="Texture2D" uid="uid://crdydtxjs1wfa" path="res://graphics/small-roid.png" id="5_cote0"]
@@ -17,10 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://b8ng2r72o5d4q" path="res://graphics/middle-roid.png" id="6_oeiqk"]
 [ext_resource type="AudioStream" uid="uid://bg8fjgpbsp1ys" path="res://sounds/gra1.mp3" id="7_06ohe"]
 [ext_resource type="Texture2D" uid="uid://bo3rsdkigb3ma" path="res://graphics/big-roid.png" id="7_44vrx"]
-
-[ext_resource type="PackedScene" uid="uid://dkfyx2sihse8n" path="res://sounds/sredni_wybuch.tscn" id="7_gshj0"]
-[ext_resource type="PackedScene" uid="uid://do80avsycte3y" path="res://sounds/duzy_wybuch.tscn" id="9_6aoeo"]
-
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_m6bij"]
 normal = Vector2(1, 0)
@@ -30,25 +23,18 @@ normal = Vector2(-1, 0)
 
 [sub_resource type="Resource" id="Resource_p47wl"]
 script = ExtResource("4_7np1c")
-
-chrash_suund = ExtResource("4_gsfg6")
-
 sprite = ExtResource("5_cote0")
-max_hp = 10
+max_hp = 20
 
 [sub_resource type="Resource" id="Resource_xlsn7"]
 script = ExtResource("4_7np1c")
-
-chrash_suund = ExtResource("7_gshj0")
 sprite = ExtResource("6_oeiqk")
 max_hp = 40
 
 [sub_resource type="Resource" id="Resource_2wjxh"]
 script = ExtResource("4_7np1c")
-chrash_suund = ExtResource("9_6aoeo")
 sprite = ExtResource("7_44vrx")
 max_hp = 100
-
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_44wt0"]
 size = Vector2(84, 54)
@@ -90,7 +76,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"Shoot",
-"speed": 30.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -106,8 +92,6 @@ animations = [{
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("1_bfu4x")
 player = NodePath("../Player")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Walls" type="Node" parent="."]
 
@@ -130,7 +114,7 @@ asteroid_prefab = ExtResource("1_7lsi1")
 asteroids = Array[ExtResource("4_7np1c")]([SubResource("Resource_p47wl"), SubResource("Resource_xlsn7"), SubResource("Resource_2wjxh")])
 
 [node name="Timer" type="Timer" parent="AsteroidSpawner"]
-wait_time = 0.1
+wait_time = 0.3
 autostart = true
 
 [node name="Player" type="CharacterBody2D" parent="." node_paths=PackedStringArray("root_node")]
