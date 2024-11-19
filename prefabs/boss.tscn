@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://h1e431c6tby6"]
+
+[ext_resource type="Texture2D" uid="uid://c8eqqc1tx4tpx" path="res://graphics/cosmic_player_best.png" id="1_5fhio"]
+[ext_resource type="Script" path="res://scripts/boss.gd" id="1_xjfmn"]
+[ext_resource type="Script" path="res://state machine/state_machine.gd" id="2_yj85h"]
+[ext_resource type="Script" path="res://state machine/boss/move.gd" id="4_ybt80"]
+[ext_resource type="PackedScene" uid="uid://dlao5bqqtxdva" path="res://prefabs/boss_bullet.tscn" id="6_62u0c"]
+[ext_resource type="Script" path="res://state machine/boss/attack_burst.gd" id="7_twyxm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tokwp"]
+size = Vector2(215, 216)
+
+[node name="Boss" type="CharacterBody2D" groups=["enemies"]]
+z_index = 1
+script = ExtResource("1_xjfmn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -1.90735e-06)
+scale = Vector2(14.4922, 13.7035)
+texture = ExtResource("1_5fhio")
+flip_v = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, -8)
+shape = SubResource("RectangleShape2D_tokwp")
+
+[node name="Cannons" type="Node2D" parent="."]
+
+[node name="CannonRight" type="Node2D" parent="Cannons"]
+position = Vector2(20, -45)
+
+[node name="CannonLeft" type="Node2D" parent="Cannons"]
+position = Vector2(-18, -45)
+
+[node name="State Machine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_yj85h")
+initial_state = NodePath("Move")
+
+[node name="Move" type="Node" parent="State Machine" node_paths=PackedStringArray("boss")]
+script = ExtResource("4_ybt80")
+boss = NodePath("../..")
+
+[node name="AttackBurst" type="Node" parent="State Machine" node_paths=PackedStringArray("boss")]
+script = ExtResource("7_twyxm")
+boss = NodePath("../..")
+bullet_prefabs = Array[PackedScene]([ExtResource("6_62u0c")])
+
+[node name="AttackFollow" type="Node" parent="State Machine"]

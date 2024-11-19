@@ -1,8 +1,9 @@
 extends Panel
 
-var player_tier = 0 # players current spaceship tier (idk how to add this) should be equal to actual player tier
+@onready var player_tier = 0 # players current spaceship tier (idk how to add this) should be equal to actual player tier
 
 func _ready():
+	print(player_tier)
 	if player_tier >= 2:
 		%UpgradeButton.disabled = true
 

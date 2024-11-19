@@ -2,10 +2,16 @@ extends CharacterBody2D
 
 @export var root_node: Node
 
+@export var initial_health := 300.0
 @export var speed: float = 300.0  # Maksymalna prędkość w osi X
 @export var y_speed: float = 500.0  # Prędkość w osi Y
 
 @export var smoothing_factor: float = 0.05  # Miękkość zmiany kierunku (0.0 - natychmiastowo, 1.0 - brak ruchu)
+
+var health
+
+func _ready():
+	health = initial_health
 
 func _physics_process(delta):
 	var direction = Input.get_axis("left", "right")
@@ -26,4 +32,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 
-
+func take_damage(value):
+	health -= value
+	if health <= 0:
+		get_tree().change_scene_to_file("res://menus/play.tscn")

@@ -1,6 +1,7 @@
-[gd_scene load_steps=31 format=3 uid="uid://g7duvjv0odhg"]
+[gd_scene load_steps=32 format=3 uid="uid://g7duvjv0odhg"]
 
 [ext_resource type="PackedScene" uid="uid://dbkru25acx0hn" path="res://prefabs/asteroid.tscn" id="1_7lsi1"]
+[ext_resource type="PackedScene" uid="uid://h1e431c6tby6" path="res://prefabs/boss.tscn" id="1_28pgr"]
 [ext_resource type="Script" path="res://camera_movement.gd" id="1_bfu4x"]
 [ext_resource type="Texture2D" uid="uid://chcopiexb25yv" path="res://graphics/cosmic_player_basic.png" id="1_l577p"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_wrb64"]
@@ -96,6 +97,8 @@ animations = [{
 
 [node name="Game" type="Node2D"]
 
+[node name="Boss" parent="." instance=ExtResource("1_28pgr")]
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("18_jyg3f")
 
@@ -133,6 +136,7 @@ autostart = true
 position = Vector2(1, 241)
 script = ExtResource("1_wrb64")
 root_node = NodePath("..")
+initial_health = 100.0
 speed = 600.0
 
 [node name="BulletsRefillerTimer" type="Timer" parent="Player"]
